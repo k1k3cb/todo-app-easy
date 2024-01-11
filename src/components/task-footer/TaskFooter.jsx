@@ -2,7 +2,8 @@ import { StyledClearSpan, StyledFooterContainer } from './styles';
 
 const TaskFooter = ({ tasks, setTasks }) => {
 	const itemsLeft = tasks.filter(task => !task.completed).length;
-	console.log(itemsLeft);
+	// if (tasks.length === 0) return <span>No tasks</span>;
+
 	return (
 		<StyledFooterContainer>
 			{tasks.length === 0 && <span>No tasks</span>}
@@ -12,7 +13,6 @@ const TaskFooter = ({ tasks, setTasks }) => {
 					{itemsLeft} {itemsLeft === 1 ? 'item' : 'items'} left
 				</span>
 			)}
-
 			<StyledClearSpan
 				onClick={() => handleClickDeleteCompleted(tasks, setTasks)}
 			>

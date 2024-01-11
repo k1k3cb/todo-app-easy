@@ -1,12 +1,14 @@
 import { v4 } from 'uuid';
-import { StyledFormContent, StyledInput, StyledLabel } from './styles';
+import { StyledFormContent, StyledImg, StyledInput, StyledLabel } from './styles';
 
 const Form = ({ tasks, setNewTask }) => {
 	return (
 		<StyledFormContent
 			onSubmit={event => handleSubmit(event, tasks, setNewTask)}
 		>
-			<StyledLabel>... </StyledLabel>
+			<StyledLabel>
+				<StyledImg src='assets/images/icon-check.svg' alt='' />
+			</StyledLabel>
 			<StyledInput name='task' type='text' placeholder='Create a new todo...' />
 		</StyledFormContent>
 	);

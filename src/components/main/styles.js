@@ -6,4 +6,6 @@ export const MainContainer = styled.main`
 	left: 50%;
 	transform: translateX(-50%);
 	max-width: 327px;
+
+	
 `;

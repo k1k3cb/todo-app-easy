@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { COLORS } from './colors';
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -17,8 +18,8 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     max-width: 1440px;
     text-align: center;
-    color: #9092a5;
-    background-color: #fafafa;
+    color: ${COLORS.textColor};
+    background-color: ${COLORS.backgroundColor};
     font-family: 'Josefin Sans', sans-serif;
     
     

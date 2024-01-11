@@ -1,35 +1,17 @@
-import {  StyledLabel, StyledTaskContent } from './styles';
+import { StyledLabel, StyledTaskContent } from './styles';
 
-const TaskCard = ({ tasks, taskName, completed, taskId, setTasks }) => {
+const TaskCard = ({ task, handleChangeCompleted, handleClickDelete }) => {
 	return (
 		<StyledTaskContent>
-			<input
-				type='checkbox'
-				onChange={event =>
-					handleChangeCompleted(event, setTasks, tasks, taskId)
-				}
-			/>
-			<StyledLabel $taskCompleted={completed}>{taskName}</StyledLabel>
+			<input type='checkbox' onChange={handleChangeCompleted} />
+			<StyledLabel $taskCompleted={task.completed}>{task.taskName}</StyledLabel>
 			<img
 				src='assets/images/icon-cross.svg'
 				alt='Delete'
-				onClick={() => handleClickDelete(setTasks, tasks, taskId)}
+				onClick={handleClickDelete}
 			/>
 		</StyledTaskContent>
 	);
-};
-
-const handleChangeCompleted = (event, setTasks, tasks, taskId) => {
-	const isCompleted = event.target.checked;
-	setTasks(
-		tasks.map(task =>
-			task.id === taskId ? { ...task, completed: isCompleted } : task
-		)
-	);
-};
-
-const handleClickDelete = (setTasks, tasks, taskId) => {
-	setTasks(tasks.filter(task => task.id !== taskId));
 };
 
 export default TaskCard;
